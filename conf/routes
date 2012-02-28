@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# REST Method Override
+GET          /api/post/{controller}             {controller}Controller.create
+GET          /api/get/{controller}/{id}         {controller}Controller.get({id})
+GET          /api/put/{controller}/{id}         {controller}Controller.update({id})
+GET          /api/delete/{controller}/{id}      {controller}Controller.delete({id})
+
+# REST
+POST         /api/{controller}                  {controller}Controller.create
+GET          /api/{controller}/{id}             {controller}Controller.get({id})
+PUT          /api/{controller}/{id}             {controller}Controller.update({id})
+DELETE       /api/{controller}/{id}             {controller}Controller.delete({id})
